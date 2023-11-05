@@ -1,0 +1,162 @@
+.container {
+    padding-block: 4rem;
+    min-height: 100%;
+    min-width: 100%;
+    color: #263052;
+}
+
+.container > div > div:first-child {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2;
+    margin-block: 0.5rem;
+
+	@media screen and (max-width: 540px) {  
+       line-height: 1.5;
+       margin-inline: 2rem;
+    }
+}
+
+h1 {
+    letter-spacing: -0.1rem; /*to reduce the space between each characters*/
+}
+
+.title {
+    margin-block: 4rem;
+
+    @media screen and (max-width: 431px) {
+        margin-block: 3rem;
+    }
+}
+
+.title h1 {
+    @media screen and (max-width: 391px) {
+        font-size: 1.2rem;
+    }
+}
+
+.container > div > div:first-child h1 {
+    @media screen and (min-width: 282px) and (max-width: 391px) {
+        font-size: 2.3rem;
+    }
+
+    @media screen and (max-width: 281px) {
+        font-size: 1.8rem;
+    }
+
+    @media screen and (min-width: 392px) and (max-width: 431px) {
+        font-size: 3rem;
+    }
+}
+
+.container > div > div:first-child p {
+    font-size: 1.5rem;
+    color: #a0a5b4;
+    font-weight: 500;
+
+    @media screen and (max-width: 281px) {
+        font-size: 1rem;
+    }
+
+    @media screen and (min-width: 282px) and (max-width: 391px) {
+        font-size: 1.2rem;
+    }
+}
+
+.container > div > div:last-child {
+    display: flex;
+    justify-content: center;
+}
+
+.container > div > div > div {
+    margin-block-start: 3rem;
+    padding-inline: 3.5rem;
+    width: 50%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+   
+    @media screen and (min-width: 432px) and (max-width: 1024px) {
+        width: 75%;
+    }
+
+    @media screen and (min-width: 282px) and (max-width: 540px) {
+        width: 85%;
+        padding-inline: 2rem;
+        margin-block-start: 2rem;
+    }
+
+    @media screen and (max-width: 281px) {
+        width: 90%;
+        padding-inline: 1rem;
+    }
+}
+
+.container > div > div > div h1 {
+    font-size: 2.5rem;
+
+    @media screen and (max-width: 281px) {
+        font-size: 1.7rem;
+    }
+
+    @media screen and (min-width: 282px) and (max-width: 391px) {
+        font-size: 2rem;
+    }
+}
+
+.rightPlaceholder {
+    position: absolute;
+    right: 1.5rem;
+    top: 4.1rem;
+
+    @media screen and (max-width: 281px) {
+        display: none;
+    }
+}
+
+.rightPlaceholder > span:last-child {
+    margin-inline-start: 2rem;
+
+    @media screen and (min-width: 282px) and (max-width: 431px) {
+        margin-inline-start: 0.5rem;
+    }
+}
+
+input[type='radio'] {
+    background-color: #f9fafa;
+    accent-color: #6a59c9;
+    width: 2rem;
+    height: 2rem;
+    margin-block: auto;
+
+    @media screen and (max-width: 391px) {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+.spaceNumber {
+    letter-spacing: 0.1rem;
+}
+
+.radioContainer {
+    margin-block-end: 3.5rem;
+}
+
+.radioText {
+    color: var(--color-black-primary);
+    font-weight: 500;
+    font-size: 1.7rem;
+
+    @media screen and (max-width: 281px) {
+        font-size: 1rem;
+        margin-block-start: 0.3rem;
+    }
+
+    @media screen and (min-width: 282px) and (max-width: 391px) {
+        font-size: 0.7rem;
+    }
+
+	@media screen and (min-width: 282px) and (max-width: 431px) {
+       font-size: 1.4rem;
+    }
+}
