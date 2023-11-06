@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-    margin-block-end: 5rem;
+    // margin-block-end: 5rem;
 `
 
 export const StyledFieldContainer = styled.div`
-    display: grid;
-    gap: 1rem;
-    margin-block: 2.5rem;
-    min-width: 0;
+    // display: grid;
+    // gap: 1rem;
+    // margin-block: 2.5rem;
+    // min-width: 0;
     position: relative;
 `
 
@@ -38,19 +38,12 @@ export const StyledLabelContainer = styled.label`
     justify-content: space-between;
     padding-inline: 1.8rem;
     border-radius: 1rem;
-    margin-block-start: 0.7rem;
-    margin-block-end: 1.5rem;
+    // margin-block-start: 0.7rem;
+    color: #515a74;
     
     &.checked {
-        border: 0.1rem solid #ab90e7;
+        border: 0.2rem solid #ab90e7;
         background: #f6f4ff;
-    }
-
-    div {
-        display: flex;
-        margin-block: auto;
-        // font-size: 1.7rem;
-        gap: 1rem;
     }
 `
 

@@ -1,0 +1,11 @@
+.labelText {
+    @media screen and (max-width: 390px) {
+        font-size: 1.2rem;
+    }
+}
+
+.hide {
+    @media screen and (max-width: 539px) {
+        display: none;
+    }
+}

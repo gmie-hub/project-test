@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Field, FormikProvider, FormikValues, useFormik } from 'formik';
 import styles from '../Main/main.module.css';
-import Input from '../../customs/input';
-import Select from '../../customs/SelectInput';
 import { ReactComponent as Warning } from '../../svg/location-exclamation.svg';
 import Button from '../Button/Button';
-import { StyledAmount, StyledFieldContainer, StyledForm, StyledLabel, StyledLabel2, StyledLabelContainer, StyledSpan, GreenSpan } from '../Main/styles'
+import { StyledLabelContainer } from '../Main/styles'
+import { Box, Flex, HStack, Heading, Stack, Text, VStack } from '@chakra-ui/layout';
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import ChakraInput from '../../customs/chakraInput';
+import ChakraSelect from '../../customs/chakraSelect';
 
 const Main = () => {
     const [selectedOption, setSelectedOption] = useState('option1');
@@ -14,124 +15,116 @@ const Main = () => {
         setSelectedOption(e.target.value);
     };
 
-    const formik = useFormik<FormikValues>({
-        initialValues: {},
-        onSubmit: () => {}
-    })
-
     return (
         <div className={styles.container}>
-            <div>
-                <div>
-                    <h1 className={styles.letterSpacing}>Create your hedge</h1>
-                    <p>Umoja offers hedging as a service that's simple, affordable, & price transparent.</p>
-                </div>
-                <div>
-                    <div>
-                        <div className={styles.title}><h1>Hedging details</h1></div>
-                        <FormikProvider value={formik}>
-                            <StyledForm>
-                                <StyledFieldContainer>
-                                    <Field 
-                                        name='notionalAmount'
-                                        type='text'
-                                        label='Notional amount'
+            <Stack spacing='12'>
+                <Box textAlign='center' lineHeight='10' my='4' className={styles.headingContainer}>
+                    <Heading as='h2' size='4xl' mb='8' className={styles.heading}>Create your hedge</Heading>
+                    <Text 
+                        color='#a0a5b4' 
+                        fontSize='1.6rem' 
+                        fontWeight='500'
+                        className={styles.headingText}
+                    >
+                        Umoja offers hedging as a service that's simple, affordable, & price transparent.
+                    </Text>
+                </Box>
+                <Flex justifyContent='center'>
+                    <Card mt='1.5' borderRadius='2rem' className={styles.card}>
+                        <CardHeader>
+                            <Heading>Hedging details</Heading>
+                        </CardHeader>
+                        <CardBody mt={'1rem'}>
+                            <form>
+                                <VStack spacing='2rem'>
+                                    <ChakraInput 
+                                        label1='Notional amount'
                                         placeholder='Notional amount'
-                                        as={Input}
+                                        helperText='Please enter the amount you are looking to hedge in the base currency.'
+                                        display={true}
                                     />
-                                    <StyledSpan>Please enter the amount you are looking to hedge in the base currency.</StyledSpan>
-                                    <div className={styles.rightPlaceholder}>
-                                        <StyledSpan>Min: <StyledAmount>500k</StyledAmount></StyledSpan>
-                                        <StyledSpan>Max: <StyledAmount>5m</StyledAmount></StyledSpan>
-                                    </div>
-                                </StyledFieldContainer>
-                                <StyledFieldContainer>
-                                    <Field 
-                                        name='baseCurrency'
-                                        type='text'
-                                        label='Base currency'
-                                        placeholder='USD'
-                                        as={Input}
+                                    <ChakraSelect
+                                        label1='Base currency' 
+                                        placeholder='Base currency'
+                                        helperText='Please select the currency you are looking to protect.'
                                     />
-                                    <StyledSpan>Please select the currency you are looking to protect.</StyledSpan>
-                                </StyledFieldContainer>
-                                <StyledFieldContainer>
-                                    <StyledLabel2>1 USD = <span className={styles.spaceNumber}>17.810</span> MXN</StyledLabel2>
-                                    <Field 
-                                        name='quoteCurrency'
-                                        type='text'
-                                        label='Quote currency'
-                                        placeholder='MXN'
-                                        as={Select}
+                                    <ChakraSelect
+                                        label1='Quote currency' 
+                                        label2='1 USD = 17.810 MXN'
+                                        placeholder='Quote currency'
+                                        helperText='Please select the currency you are looking to hedge.'
                                     />
-                                    <StyledSpan>Please select the currency you are looking to hedge.</StyledSpan>
-                                </StyledFieldContainer>
-                                <div className={styles.radioContainer}>
-                                    <StyledLabel>Data on direction</StyledLabel>
-                                    <StyledLabelContainer className={selectedOption === 'option1' ? 'checked' : ''}>
-                                        <div>
-                                            <span><Warning /></span>
-                                            <span className={styles.radioText}><p>MXN appreciates vs USD</p></span> 
-                                        </div>
-                                        <input 
-                                            type='radio' 
-                                            name='radioGroup'
-                                            value='option1'
-                                            checked={selectedOption === 'option1'}
-                                            onChange={handleOptionChange}
-                                        />
-                                    </StyledLabelContainer>
-                                    <StyledLabelContainer className={selectedOption === 'option2' ? 'checked' : ''}>
-                                        <div>
-                                            <span><Warning /></span>
-                                            <div className={styles.radioText}><p>MXN depreciatesD vs USD</p></div> 
-                                        </div>
-                                        <input 
-                                            type='radio'
-                                            name='radioGroup'
-                                            value='option2' 
-                                            checked={selectedOption === 'option2'}
-                                            onChange={handleOptionChange}
-                                        />
-                                    </StyledLabelContainer>
-                                </div>
-                                <StyledFieldContainer>
-                                    <StyledLabel2>1 USD = <span className={styles.spaceNumber}>17.810</span> MXN<GreenSpan>+40%</GreenSpan></StyledLabel2>
-                                    <Field 
-                                        name='strikeRate'
-                                        type='text'
-                                        label='Strike rate'
+                                    <Stack width={'100%'}>
+                                        <Text fontSize={'1.4rem'} color={'#515a74'} fontWeight={'bold'}>Data on direction</Text>
+                                        <Stack spacing={'1.3rem'}>
+                                            <StyledLabelContainer className={selectedOption === 'option1' ? 'checked' : ''}>
+                                                <HStack>
+                                                    <Box><Warning /></Box>
+                                                    <Text 
+                                                        fontSize={'1.7rem'} 
+                                                        fontWeight={500} 
+                                                        color={'#515a74'}
+                                                        className={styles.radioText}
+                                                    >
+                                                        MXN appreciates vs USD
+                                                    </Text>
+                                                </HStack>
+                                                <input 
+                                                    type='radio' 
+                                                    name='radioGroup'
+                                                    value='option1'
+                                                    checked={selectedOption === 'option1'}
+                                                    onChange={handleOptionChange}
+                                                />
+                                            </StyledLabelContainer>
+                                            <StyledLabelContainer className={selectedOption === 'option2' ? 'checked' : ''}>
+                                                <HStack>
+                                                    <Box><Warning /></Box>
+                                                    <Text 
+                                                        fontSize={'1.7rem'} 
+                                                        fontWeight={500} 
+                                                        color={'#515a74'}
+                                                        className={styles.radioText}
+                                                    >
+                                                        MXN depreciatesD vs USD
+                                                    </Text>
+                                                </HStack>
+                                                <input 
+                                                    type='radio'
+                                                    name='radioGroup'
+                                                    value='option2' 
+                                                    checked={selectedOption === 'option2'}
+                                                    onChange={handleOptionChange}
+                                                />
+                                            </StyledLabelContainer>
+                                        </Stack>
+                                    </Stack>
+                                    <ChakraInput 
+                                        label1='Strike rate'
+                                        label2={
+                                            <Box display={'flex'}>1 USD = 17.810 MXN <Text color={'#439e76'} ms={2}>+40%</Text></Box>
+                                        }
                                         placeholder='Strike rate'
-                                        as={Input}
+                                        helperText='Please enter the devaluation threshold at which you would like your currency risk protection to be triggered.'
+                                        display={false}
                                     />
-                                    <StyledSpan>Please enter the devaluation threshold at which you'd like your currency risk protection to be triggered.</StyledSpan>
-                                </StyledFieldContainer>
-                                <StyledFieldContainer>
-                                    <Field 
-                                        name='maturity'
-                                        type='text'
-                                        label='Maturity'
+                                    <ChakraSelect
+                                        label1='Maturity' 
                                         placeholder='Maturity'
-                                        as={Select}
+                                        helperText='Please enter the maturity for which you would like currency risk protection.'
                                     />
-                                    <StyledSpan>Please enter the maturity for which you'd like currency risk protection.</StyledSpan>
-                                </StyledFieldContainer>
-                                <StyledFieldContainer>
-                                    <Field 
-                                        name='optionType'
-                                        type='text'
-                                        label='Option type'
+                                    <ChakraSelect
+                                        label1='Option type' 
                                         placeholder='Option type'
-                                        as={Select}
+                                        helperText='Protect base currency devaluation against quote currency.'
                                     />
-                                    <StyledSpan>Protect base currency devaluation against quote currency.</StyledSpan>
-                                </StyledFieldContainer>
+                                </VStack>
                                 <Button />
-                            </StyledForm>
-                        </FormikProvider>
-                    </div>
-                </div>
-            </div>
+                            </form>
+                        </CardBody>
+                    </Card>
+                </Flex>
+            </Stack>
         </div>
     )
 };

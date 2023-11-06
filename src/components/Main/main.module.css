@@ -5,15 +5,11 @@
     color: #263052;
 }
 
-.container > div > div:first-child {
-    text-align: center;
-    font-size: 2rem;
-    line-height: 2;
-    margin-block: 0.5rem;
-
+.headingContainer {
 	@media screen and (max-width: 540px) {  
-       line-height: 1.5;
+       line-height: 1;
        margin-inline: 2rem;
+       margin-block: 0.7rem;
     }
 }
 
@@ -35,9 +31,9 @@ h1 {
     }
 }
 
-.container > div > div:first-child h1 {
+.heading {
     @media screen and (min-width: 282px) and (max-width: 391px) {
-        font-size: 2.3rem;
+        font-size: 2.5rem;
     }
 
     @media screen and (max-width: 281px) {
@@ -49,59 +45,36 @@ h1 {
     }
 }
 
-.container > div > div:first-child p {
-    font-size: 1.5rem;
-    color: #a0a5b4;
-    font-weight: 500;
-
+.headingText {
     @media screen and (max-width: 281px) {
         font-size: 1rem;
     }
 
     @media screen and (min-width: 282px) and (max-width: 391px) {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        margin-inline: 1.5rem;
     }
 }
 
-.container > div > div:last-child {
-    display: flex;
-    justify-content: center;
-}
-
-.container > div > div > div {
-    margin-block-start: 3rem;
-    padding-inline: 3.5rem;
-    width: 50%;
-    background-color: #ffffff;
-    border-radius: 2rem;
-   
-    @media screen and (min-width: 432px) and (max-width: 1024px) {
+.card {
+    padding: 3rem;
+    @media screen and (min-width: 541px) and (max-width: 1280px) {
         width: 75%;
+        padding: 3rem;
     }
 
     @media screen and (min-width: 282px) and (max-width: 540px) {
-        width: 85%;
-        padding-inline: 2rem;
+        width: 90%;
+        padding-inline: 1rem;
+        padding-block: 2rem;
         margin-block-start: 2rem;
     }
 
     @media screen and (max-width: 281px) {
         width: 90%;
-        padding-inline: 1rem;
+        padding-inline: 0.3rem;
     }
-}
-
-.container > div > div > div h1 {
-    font-size: 2.5rem;
-
-    @media screen and (max-width: 281px) {
-        font-size: 1.7rem;
-    }
-
-    @media screen and (min-width: 282px) and (max-width: 391px) {
-        font-size: 2rem;
-    }
-}
+} 
 
 .rightPlaceholder {
     position: absolute;
@@ -138,15 +111,7 @@ input[type='radio'] {
     letter-spacing: 0.1rem;
 }
 
-.radioContainer {
-    margin-block-end: 3.5rem;
-}
-
 .radioText {
-    color: var(--color-black-primary);
-    font-weight: 500;
-    font-size: 1.7rem;
-
     @media screen and (max-width: 281px) {
         font-size: 1rem;
         margin-block-start: 0.3rem;
